@@ -9,10 +9,10 @@ export default function Index() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setLogoSrc("logo-icon.png")
+        setLogoSrc("/logo-icon.png")
         setUiMode("mobile")
       } else {
-        setLogoSrc("logo.svg")
+        setLogoSrc("/logo.svg")
         setUiMode("Desktop")
       }
     }

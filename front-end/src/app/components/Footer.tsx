@@ -6,7 +6,13 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 
-interface FooterProps {}
+interface FooterProps { }
+
+interface Visibility {
+  products: boolean;
+  services: boolean;
+  [key: string]: boolean; // Add index signature
+}
 
 const Footer: React.FC<FooterProps> = () => {
   const [listVisibility, setListVisibility] = useState({
@@ -18,7 +24,7 @@ const Footer: React.FC<FooterProps> = () => {
   const toggleListVisibility = (listKey: string) => {
     setListVisibility((prevVisibility) => ({
       ...prevVisibility,
-      [listKey]: !prevVisibility[listKey],
+      [listKey]: !prevVisibility[listKey as keyof typeof prevVisibility],
     }));
   };
 
@@ -36,9 +42,8 @@ const Footer: React.FC<FooterProps> = () => {
           </span>
         </h3>
         <ul
-          className={`list-none ${
-            listVisibility.products ? "block" : "hidden"
-          } transition-all duration-300 flex flex-col`}
+          className={`list-none ${listVisibility.products ? "block" : "hidden"
+            } transition-all duration-300 flex flex-col`}
         >
           <li>
             <a href="#" className="block py-2 px-4 hover:bg-gray-300">
@@ -66,9 +71,8 @@ const Footer: React.FC<FooterProps> = () => {
           </span>
         </h3>
         <ul
-          className={`list-none ${
-            listVisibility.services ? "block" : "hidden"
-          } transition-all duration-300 flex flex-col`}
+          className={`list-none ${listVisibility.services ? "block" : "hidden"
+            } transition-all duration-300 flex flex-col`}
         >
           <li>
             <a href="#" className="block py-2 px-4 hover:bg-gray-300">
@@ -85,37 +89,37 @@ const Footer: React.FC<FooterProps> = () => {
       </div>
 
       <div>
-          <ul>
-            <li>
-                <a href="#">Terms of Service</a>
-            </li>
-            <li>
-                <a href="#">Privacy Policy</a>
-            </li>
-            <li>
-                <a href="#">Cookie Policy</a>
-            </li>
-          </ul>
+        <ul>
+          <li>
+            <a href="#">Terms of Service</a>
+          </li>
+          <li>
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#">Cookie Policy</a>
+          </li>
+        </ul>
       </div>
       <p>Over 1,000,000 noobs trained worldwide</p>
       <ul>
         <li>
-            <a className="" href="#"><BsTwitterX /></a>
+          <a className="" href="#"><BsTwitterX /></a>
         </li>
         <li>
-            <a href="#"><FaFacebook /></a>
+          <a href="#"><FaFacebook /></a>
         </li>
         <li>
-            <a href="#"><FaYoutube /></a>
+          <a href="#"><FaYoutube /></a>
         </li>
         <li>
-            <a href="#"><FaLinkedin /></a>
+          <a href="#"><FaLinkedin /></a>
         </li>
         <li>
-            <a href="#"><FaGithub /></a>
+          <a href="#"><FaGithub /></a>
         </li>
         <li>
-            <a href="#"></a>
+          <a href="#"></a>
         </li>
       </ul>
     </footer>
