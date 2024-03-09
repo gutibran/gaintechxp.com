@@ -38,4 +38,5 @@ jobs:
             git clean -d -f --exclude secrets
             npm run build
             npm run deploy
+            npm run save
             sudo nginx -s reload
