@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "sudo pm2 start npm --name 'gaintechxp-dot-com-node-server' -- start"
+    "deploy": "pm2 start npm --name 'gaintechxp-dot-com-node-server' -- start",
+    "stop-deployment": "pm2 stop gaintechxp-dot-com-node-server; sudo pm2 delete gaintechxp-dot-com-node-server"
   },
   "dependencies": {
     "next": "14.1.3",
