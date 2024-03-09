@@ -30,8 +30,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/linuxuser/websites/gaintechxp.com/front-end
-            npm install
             npm run stop-deployment
+            npm install
             rm -fr .next
             git fetch origin main
             git reset --hard FETCH_HEAD
